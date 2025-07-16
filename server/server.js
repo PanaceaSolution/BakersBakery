@@ -6,7 +6,7 @@ const app = express()
 app.use(express.json())
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/a', (req, res) => {
   res.send('Welcome to Bakers Bakery API!')
 })
 
