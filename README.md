@@ -1,6 +1,6 @@
-# Baker's Bakery Website – MERN Stack
+# Baker's Bakery Website – PERN Stack
 
-This project is a **full-stack web application** designed for **Baker's Bakery**, built using the **MERN stack**. It provides a modern and efficient setup to manage bakery items, orders, customers, and sales using **MongoDB, Express.js, React.js, and Node.js**, with **Vite** powering the frontend.
+This project is a **full-stack web application** designed for **Baker's Bakery**, built using the **MERN stack**. It provides a modern and efficient setup to manage bakery items, orders, customers, and sales using **postgreSQL, Express.js, React.js, and Node.js**, with **Vite** powering the frontend.
 
 The frontend is built using **React.js** with **Vite** for blazing-fast development and Hot Module Replacement (HMR). The backend is served through a **RESTful API** using Express.js and Node.js.
 
