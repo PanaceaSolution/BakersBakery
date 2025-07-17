@@ -1,5 +1,13 @@
-function Home() {
-  return <div>HomePage</div>;
-}
+import React from "react";
+import ProductCard from "../components/ProductCard";
 
-export default Home
+const Home = () => {
+  return (
+    <div>
+      Home
+      <ProductCard />
+    </div>
+  );
+};
+
+export default Home;
