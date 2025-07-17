@@ -47,33 +47,31 @@ const SliderSection = () => {
   return (
     <section className="w-full relative flex items-center">
       {/* Left Arrow */}
-      {showLeftArrow && (
-        <button
-          aria-label="Scroll left"
-          onClick={() => scroll("left")}
-          className="absolute left-2 z-10 bg-[#8C1C32] shadow rounded-full p-2 hover:bg-white transition-colors text-white duration-200"
-        >
-          <ChevronLeft size={24} className="hover:text-gray-700 text-white" />
-        </button>
-      )}
+      <button
+        aria-label="Scroll left"
+        onClick={() => scroll("left")}
+        className="absolute left-2 z-10 bg-[#8C1C32] shadow rounded-full p-2 hover:bg-white transition-colors text-white duration-200"
+      >
+        <ChevronLeft size={24} className="hover:text-gray-700 text-white" />
+      </button>
 
       {/* Cards Container */}
       <div className="w-full max-w-[95%] mx-auto px-6 ">
         <div
           ref={scrollRef}
-                  className="flex gap-[88px] overflow-x-auto scroll-smooth py-4 snap-x snap-mandatory hide-scrollbar sm:gap-6
-          lg:space-x-3 
-             mx-9 "
+          className="flex gap-[88px] overflow-x-auto scroll-smooth py-4 snap-x snap-mandatory hide-scrollbar sm:gap-6
+          lg:space-x-3 md:mx-3
+             space-x-7 mx-4"
         >
           {cakes.map((cake) => (
             <div
               key={cake.id}
-              className="snap-start flex-shrink-0 flex justify-center items-center"
+              className="snap-start flex-shrink-0 flex justify-center items-center "
             >
               <SliderCards
                 {...cake}
                 image={cakeu}
-                className="w-[75vw] sm:w-[200px] md:w-[220px] lg:w-[240px]"
+                className="w-[75vw] sm:w-[200px] md:w-[220px] lg:w-[240px]  "
               />
             </div>
           ))}

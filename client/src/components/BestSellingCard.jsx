@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cake from "../assets/cak.jpg"; 
 import { Button } from "@mui/material";
 import { FaStar } from "react-icons/fa";
-const ProductCard = ({
+const BestSellingCard = ({
   id,
   name,
   description,
@@ -19,7 +19,7 @@ const ProductCard = ({
   const discountedPrice = price - price * (discount / 100);
 
   return (
-    <div className="w-[42vh] h-[23vw] rounded-[10px] shadow relative bg-white tracking-wide">
+    <div className="w-[355px] h-[364px] rounded-[10px] shadow relative bg-white tracking-wide">
       {/* Discount badge */}
       {isdiscount && (
         <div className="absolute bg-red-600 text-white px-2 rounded-t-[10px] w-[97px] h-[27px] ">
@@ -29,7 +29,11 @@ const ProductCard = ({
 
       {/* Product Image */}
       <div className=" h-[200px] flex  overflow-hidden rounded-t-[10px] ">
-        <img src={cake} alt={name} className="h-full object-cover min-w-full " />
+        <img
+          src={cake}
+          alt={name}
+          className="h-full object-cover min-w-full "
+        />
       </div>
 
       {/* Info */}
@@ -75,4 +79,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default React.memo(BestSellingCard);
