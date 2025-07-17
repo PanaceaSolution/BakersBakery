@@ -29,6 +29,31 @@ model Product {
   categoryId  String
   images      String[]  // Array of image URLs
   tags        String[]  // Array of tags (e.g., chocolate, fruit)
+  available   Boolean   @default(true)        // Availability status
+  isFeatured  Boolean   @default(false)       // Shown on the home page
+  createdAt   DateTime  @default(now())       // Timestamp of product creation
 
   @@map("products") // Optional: to explicitly map to a table named 'products'
+}
+
+enum OrderStatus {
+  pending
+  in_progress
+  completed
+  cancelled
+}
+
+model CustomCakeOrder {
+  id            String       @id @default(uuid()) // Unique order identifier
+  userId        String       // Foreign Key: User ID
+  shape         String       
+  flavor        String       
+  size          String       
+  theme         String?      
+  messageOnCake String?      
+  imageUpload   String?     
+  deliveryDate  DateTime    
+  address       String      
+  status        OrderStatus  @default(pending) // Enum: pending, in_progress, completed, cancelled
+  createdAt     DateTime     @default(now())    // Order date
 }
