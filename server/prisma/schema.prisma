@@ -21,7 +21,7 @@ model Category {
   image     String
   createdAt DateTime  @default(now())
 
-  products  Product[] // Relation: one-to-many
+ // products  Product[] // Relation: one-to-many
 }
 
 model Product {
@@ -29,14 +29,14 @@ model Product {
   name        String
   description String
   price       Decimal   @db.Decimal(10, 2)
-  categoryId  String
+//  categoryId  String
   images      String[]
   tags        String[]
   available   Boolean   @default(true)
   isFeatured  Boolean   @default(false)
   createdAt   DateTime  @default(now())
 
-  category    Category  @relation(fields: [categoryId], references: [id])
+ // category    Category  @relation(fields: [categoryId], references: [id])
 
   cartItems   CartItem[]
   reviews     Review[]
