@@ -1,8 +1,12 @@
 import React from 'react'
 
+
 const CustomizeCake = () => {
   return (
-    <div>CustomizeCake</div>
+    <div>CustomizeCake
+
+
+    </div>
   )
 }
 

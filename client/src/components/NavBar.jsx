@@ -20,7 +20,11 @@ const NavBar = () => {
       <div className="max-w-[1920px] mx-auto flex items-center justify-between px-6 md:px-[90px] py-[22px] h-[108px]">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="/assets/logo.png" alt="Logo" className="h-[80px] w-[80px]" />
+          <img
+            src="/assets/logo.png"
+            alt="Logo"
+            className="h-[80px] w-[80px]"
+          />
         </div>
 
         {/* Desktop Navigation */}
@@ -30,7 +34,6 @@ const NavBar = () => {
               key={label}
               to={url}
               className="text-[16px] font-poppins font-medium leading-none tracking-normal hover:text-[#8C1C32] transition-colors"
-
             >
               {label}
             </Link>
@@ -40,11 +43,9 @@ const NavBar = () => {
         {/* Icons */}
         <div className="flex items-center gap-4">
           <FiSearch className="text-[#353147] text-xl cursor-pointer hover:text-[#8C1C32]" />
-<FiShoppingCart className="text-[#353147] text-xl cursor-pointer hover:text-[#8C1C32]" />
-<FiUser className="text-[#353147] text-xl cursor-pointer hover:text-[#8C1C32]" />
+          <FiShoppingCart className="text-[#353147] text-xl cursor-pointer hover:text-[#8C1C32]" />
+          <FiUser className="text-[#353147] text-xl cursor-pointer hover:text-[#8C1C32]" />
 
-
-          
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
             {menuOpen ? (
