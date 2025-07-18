@@ -1,5 +1,6 @@
 // pages/Home.jsx
 import ProductCard from "../components/ProductCard";
+import SweetDeliverySection from "../components/SweetDeliverySection";
 
 const Home = () => {
   return (
@@ -17,6 +18,10 @@ const Home = () => {
         <h2 className="text-xl font-semibold mb-2">Welcome to Baker’s Bakery</h2>
         <p className="text-gray-600">Delicious cakes and items made fresh every day!</p>
       </section>
+
+
+      <SweetDeliverySection/>
+
     </div>
   );
 };
