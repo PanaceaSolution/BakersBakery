@@ -1,25 +1,22 @@
 
 import express from 'express'
-import sql from './config/dbConfig.js'
-
 const app = express()
+import sql from "./src/database/index.js"
 
 // Middleware
 app.use(express.json())
 
 // Routes
-app.get('/db', async (req, res) => {
+app.get('/',async (req, res) => {
   try {
-    console.log("start")
-    const result = await sql`SELECT version()`
-    res.send(`PostgreSQL Version: ${result[0].version}`)
-    console.log("database connected")
-  } catch (error) {
-    res.status(500).send('Database error: ' + error.message)
-  }
-})
-app.get('/',async(req,res)=>{
-  res.send("This is home page")
+  const result = await sql `SELECT version()`;
+  const { version } = result[0];
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(version);
+  console.log("Database connected successfully !!")
+} catch (error) {
+  console.log(error)
+}
 })
 
 // Start the server
