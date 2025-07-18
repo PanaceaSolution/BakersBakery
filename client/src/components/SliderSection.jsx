@@ -59,14 +59,14 @@ const SliderSection = () => {
       <div className="w-full max-w-[95%] mx-auto px-6 ">
         <div
           ref={scrollRef}
-          className="flex gap-[88px] overflow-x-auto scroll-smooth py-4 snap-x snap-mandatory hide-scrollbar sm:gap-6
-          lg:space-x-3 md:mx-3
-             space-x-7 mx-4"
+          className="flex gap-[88px] overflow-x-auto scroll-smooth py-4 snap-x snap-mandatory hide-scrollbar sm:gap-5
+          lg:space-x-1 md:mx-3
+             space-x-4 mx-1"
         >
           {cakes.map((cake) => (
             <div
               key={cake.id}
-              className="snap-start flex-shrink-0 flex justify-center items-center "
+              className="snap-start flex-shrink-0 flex justify-center items-center px-2 "
             >
               <SliderCards
                 {...cake}

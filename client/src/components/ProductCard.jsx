@@ -19,7 +19,7 @@ const ProductCard = ({
   const discountedPrice = price - price * (discount / 100);
 
   return (
-    <div className="w-[42vh] h-[23vw] rounded-[10px] shadow relative bg-white tracking-wide">
+    <div className="w-[355px] h-[364px] rounded-[10px] shadow relative bg-white tracking-wide">
       {/* Discount badge */}
       {isdiscount && (
         <div className="absolute bg-red-600 text-white px-2 rounded-t-[10px] w-[97px] h-[27px] ">

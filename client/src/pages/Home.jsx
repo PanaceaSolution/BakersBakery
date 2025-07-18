@@ -10,12 +10,40 @@ const data = {
   subTitle: "Don’t Miss Out — Limited-Time Deals Just for You!",
 };
 
+
+
+const bannerDetail = [
+  {
+    image: "/assets/HeroSection/one.png",
+    heading: "Bake Your Dreams Into Reality",
+    subtext:
+      "Find the perfect treat for every celebration — made with love, baked to perfection.",
+    primaryBtn: { text: "Customize your Cake", link: "/customize" },
+    secondaryBtn: { text: "Order Now", link: "/shop" },
+  },
+  {
+    image: "/assets/HeroSection/two.png",
+    heading: "Make Their Day Memorable",
+    subtext: "Free candles and message card on all birthday cakes",
+    primaryBtn: { text: "Shop Birthday Cakes", link: "/birthday-cakes" },
+    secondaryBtn: { text: "Explore More", link: "/shop" },
+  },
+  {
+    image: "/assets/HeroSection/three.png",
+    heading: "Modal Cakes: Fashionably Delicious",
+    subtext:
+      "Introducing our exclusive collection of limited-edition, designer-inspired cakes.",
+    primaryBtn: { text: "Order Limited Edition Now", link: "/modal-cakes" },
+    secondaryBtn: { text: "Explore More", link: "/shop" },
+  },
+];
+
 const Home = () => {
   return (
     <div className="space-y-10">
-      <section>
+      <section className="">
         <SliderSection />
-        <ProductHolder {...data} />
+        <ProductHolder {...data} banner={bannerDetail[0]} />
 
         <h2 className="text-2xl font-bold mb-4">Popular Products</h2>
 

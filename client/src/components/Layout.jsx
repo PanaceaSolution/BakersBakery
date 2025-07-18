@@ -12,7 +12,7 @@ const Layout = () => {
     <>
       <NavBar />
       {isHome && <HeroCarousel />}
-      <main className="pt-20 px-4">
+      <main className="pt-20">
         <Outlet />
       </main>
       <Footer />
