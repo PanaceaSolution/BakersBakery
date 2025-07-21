@@ -2,9 +2,13 @@ import express from "express";
 import sql from "./config/dbConfig.js";
 import productRoute from "./routes/product/productRoute.js";
 import categoryRoute from "./routes/category/categoryRoute.js";
+import cors from "cors";
 
 const app = express()
 
+app.use(cors({
+  origin : "*"
+}))
 // Middleware
 app.use(express.json());
 
