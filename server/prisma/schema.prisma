@@ -129,8 +129,6 @@ model Review {
   image      String
   isApproved Boolean
   createdAt  DateTime  @default(now())
-
-  product    Product   @relation(fields: [productId], references: [id])
 }
 
 model Faq {

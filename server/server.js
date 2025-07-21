@@ -4,6 +4,7 @@ import productRoute from "./routes/product/productRoute.js";
 import categoryRoute from "./routes/category/categoryRoute.js";
 import orderRoute from "./routes/order/orderRoute.js";
 import customeCakeOrderRoute from "./routes/customCakeOrderRoute/customeCakeRoute.js";
+import reviewRoute from "./routes/review/reviewRoute.js";
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use("/api/v1", productRoute);
 app.use("/api/v1", categoryRoute);
 app.use("/api/v1", orderRoute);
 app.use("/api/v1", customeCakeOrderRoute);
+app.use("/api/v1", reviewRoute);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
