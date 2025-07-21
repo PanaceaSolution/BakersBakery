@@ -25,6 +25,7 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/api/v1", productRoute);
+
 app.get('/',async (req, res) => {
   try {
   const result = await sql `SELECT version()`;
