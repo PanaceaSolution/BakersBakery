@@ -1,3 +1,4 @@
+
 import express from "express";
 import sql from "./config/dbConfig.js";
 import productRoute from "./routes/product/productRoute.js";
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
+
 app.get("/db", async (req, res) => {
   try {
     console.log("start");
