@@ -15,6 +15,7 @@ import SubscribeSection from "../components/SubscribeSection";
 import GoogleMap from "../components/GoogleMap";
 import Testimonial from "../components/Testimonial";
 import UserReviewCard from "../components/UserReviewCard";
+import { getAllProducts } from "../features/product/productSlice";
 
 const data = {
   Title: "This Week's Special Offers",
@@ -27,18 +28,19 @@ const Home = () => {
   useEffect(() => {
     // Set the hero content for home page
     dispatch(setHeroByCategory("home"));
-  }, [dispatch]);
+    dispatch(getAllProducts())
+  }, []);
 
   return (
     <>
       <div className="space-y-10">
         <section className="overflow-hidden">
-          <ProductHolder {...data} />
-          {/* <h2 className="text-2xl font-bold mb-4">Popular Products</h2>
+          <ProductHolder {...data} /> 
+          <h2 className="text-2xl font-bold mb-4">Popular Products</h2>
 
   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
     <ProductCard {...cake} />
-  </div> */}
+  </div>
         </section>
 
         {/* First Banner */}
