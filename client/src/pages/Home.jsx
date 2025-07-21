@@ -13,6 +13,8 @@ import { setHeroByCategory } from "../features/hero/heroSlice";
 import Banner from "../components/Banner";
 import SubscribeSection from "../components/SubscribeSection";
 import GoogleMap from "../components/GoogleMap";
+import Testimonial from "../components/Testimonial";
+import UserReviewCard from "../components/UserReviewCard";
 
 const data = {
   Title: "This Week's Special Offers",
@@ -116,6 +118,7 @@ const Home = () => {
 
         <SweetDeliverySection />
         <SubscribeSection />
+       <UserReviewCard/>
       </div>
     </>
   );
