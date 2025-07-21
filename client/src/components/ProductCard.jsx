@@ -29,7 +29,7 @@ const ProductCard = ({
 
       {/* Product Image */}
       <div className=" h-[200px] flex  overflow-hidden rounded-t-[10px] ">
-        <img src={cake} alt={name} className="h-full object-cover min-w-full " />
+        <img src={cake} alt={name} className="h-full object-center min-w-full " />
       </div>
 
       {/* Info */}
