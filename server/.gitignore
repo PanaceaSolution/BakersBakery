@@ -24,7 +24,7 @@ dist-ssr
 
 .env
 
-/generated/prisma
+
 # Logs
 logs
 *.log
