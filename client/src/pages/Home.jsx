@@ -12,9 +12,10 @@ import { useDispatch } from "react-redux";
 import { setHeroByCategory } from "../features/hero/heroSlice";
 import Banner from "../components/Banner";
 import SubscribeSection from "../components/SubscribeSection";
-import GoogleMap from "../components/GoogleMap";
+import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Testimonial from "../components/Testimonial";
 import UserReviewCard from "../components/UserReviewCard";
+import CakeCustomizer from "../components/CakeCustomizer";
 
 const data = {
   Title: "This Week's Special Offers",
@@ -28,6 +29,7 @@ const Home = () => {
     // Set the hero content for home page
     dispatch(setHeroByCategory("home"));
   }, [dispatch]);
+
 
   return (
     <>
@@ -119,6 +121,10 @@ const Home = () => {
         <SweetDeliverySection />
         <SubscribeSection />
        <UserReviewCard/>
+      <section id="customize">
+  <CakeCustomizer/>
+</section>
+
       </div>
     </>
   );

@@ -42,12 +42,18 @@ const HeroSection = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-[48px]">
-            <Link
-              to={primaryBtn.link}
-              className="w-[244px] h-[44px] rounded-[10px] px-[10px] py-[10px] bg-[#D12C58] text-white font-medium text-center hover:bg-[#b61946] transition-colors"
-            >
-              {primaryBtn.text}
-            </Link>
+           <button
+  onClick={() => {
+    const element = document.getElementById("customize");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="w-[244px] h-[44px] rounded-[10px] px-[10px] py-[10px] bg-[#D12C58] text-white font-medium text-center hover:bg-[#b61946] transition-colors"
+>
+  {primaryBtn.text}
+</button>
+
 
             <Link
               to={secondaryBtn.link}
