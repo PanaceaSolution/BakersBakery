@@ -10,15 +10,28 @@ const Layout = () => {
 
   const isHome = location.pathname === "/";
   const isCategory = location.pathname.startsWith("/category/");
+  {/*Hidden Hero section in these routes*/}
+    const hideHeroOnRoutes = ["/cart", "/checkout", "/login"];
+
+  const shouldShowHero = isHome || isCategory; // show only on home & category
+  const shouldHideHero = hideHeroOnRoutes.includes(location.pathname);
 
   return (
     <>
       <NavBar />
-      <HeroSection />
-      <SliderSection />
+      
+      {/* Show HeroSection & SliderSection only where needed */}
+      {shouldShowHero && !shouldHideHero && (
+        <>
+          <HeroSection />
+          <SliderSection />
+        </>
+      )}
+
       <main className="pt-20">
         <Outlet />
       </main>
+
       <Footer />
     </>
   );
