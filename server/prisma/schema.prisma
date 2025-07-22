@@ -39,7 +39,7 @@ model Product {
  // category    Category  @relation(fields: [categoryId], references: [id])
 
   cartItems   CartItem[]
-  reviews     Review[]
+//  reviews     Review[]
 }
 
 enum CustomCakeStatus {
@@ -123,7 +123,6 @@ model Payment {
 model Review {
   id         String    @id @default(uuid())
   userId     String    // Will link to User later
-  productId  String
   message    String
   rating     Int
   image      String
