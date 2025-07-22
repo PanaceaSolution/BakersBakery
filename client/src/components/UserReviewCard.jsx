@@ -44,8 +44,8 @@ const UserReviewCard = () => {
       <Swiper
         modules={[Navigation, Pagination]}
         centeredSlides
-        slidesPerView={1.05} // small peek of next card
-        spaceBetween={-80}   // pull slides over each other
+        slidesPerView={1.05}
+        spaceBetween={-80}   
         navigation
         pagination={{ clickable: true }}
         loop

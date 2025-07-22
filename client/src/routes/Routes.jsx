@@ -15,6 +15,7 @@ import WeddingCakeCategory from "../pages/WeddingCakeCategory";
 import ModelCakeCategory from "../pages/ModelCakeCategory";
 import BabyShowerCakeCategory from "../pages/BabyShowerCakeCategory";
 import NotFound from "../pages/NotFound";
+import CartPage from "../pages/Cart/CartPage";
 
 const AppRoutes = () => {
   return (
@@ -27,6 +28,9 @@ const AppRoutes = () => {
         <Route path="bakery-items" element={<BakeryItems />} />
         <Route path="faqs" element={<FAQs />} />
         <Route path="contact" element={<ContactUs />} />
+        
+        {/*This is just a route for cart page which is being made*/}
+        <Route path='/cart' element={<CartPage/>} />
         
         {/* Specific category routes */}
         <Route path="category/mini-cake" element={<MiniCakeCategory />} />

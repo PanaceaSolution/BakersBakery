@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import HeroCarousel from "./HeroCarousel";
 import HeroSection from "./HeroSection";
 import Footer from "./Footer";
-import SliderSection from "./SliderSection";
+import SliderSection from "./Sliders/SliderSection";
 
 const Layout = () => {
   const location = useLocation();

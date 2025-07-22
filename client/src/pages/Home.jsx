@@ -3,8 +3,8 @@ import ProductCard from "../components/ProductCard";
 import SweetDeliverySection from "../components/SweetDeliverySection";
 
 import cake from "../assets/cake.json";
-import SliderCards from "../components/SliderCards";
-import SliderSection from "../components/SliderSection";
+import SliderCards from "../components/Sliders/SliderCards";
+import SliderSection from "../components/Sliders/SliderSection";
 import ProductHolder from "../components/ProductHolder";
 import HeroSection from "../components/HeroSection";
 import { useEffect } from "react";
@@ -16,6 +16,7 @@ import GoogleMap from "../components/GoogleMap/GoogleMap";
 import Testimonial from "../components/Testimonial";
 import UserReviewCard from "../components/UserReviewCard";
 import CakeCustomizer from "../components/CakeCustomizer";
+import TextBlock from "../components/TextBlock/TextBlock";
 
 const data = {
   Title: "This Week's Special Offers",
@@ -51,6 +52,11 @@ const Home = () => {
           buttonText="Shop Birthday Cakes"
           buttonLink="/birthday-cakes"
         />
+
+        <TextBlock
+  heading="Birthday Cakes - Make Their Day Memorable"
+  subheading="Free candles and message card on all birthday cakes"
+/>
 
         {/* Second Banner */}
         <Banner
