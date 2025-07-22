@@ -6,7 +6,7 @@ import PaymentMethod from "./PaymentMethod";
 
 const CheckoutSection = () => {
   return (
-   <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-10">
+   <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-0 py-10 flex flex-col lg:flex-row gap-8">
   {/* Left Section */}
   <div className="flex-1 max-w-[973px]">
     <BillingForm />
