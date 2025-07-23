@@ -1,6 +1,5 @@
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import ProductCard from "./ProductCard";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const ProductHolder = ({ Title, subTitle, banner }) => {
@@ -32,9 +31,21 @@ const ProductHolder = ({ Title, subTitle, banner }) => {
           </Button>
         </div>
 
-        {/* Loading / Error / Product List */}
-        {status === "loading" && <p>Loading products...</p>}
-        {status === "error" && <p className="text-red-600">Failed to fetch products.</p>}
+        {status === "loading" && (
+          <div className="flex justify-center items-center">
+            <CircularProgress
+              sx={{
+                color: "#CF294A", 
+                size: 50, 
+              }}
+            />
+          </div>
+        )}
+
+        {status === "error" && (
+          <p className="text-red-600">Failed to fetch products.</p>
+        )}
+
         {status === "success" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-x-21">
             {cake.length > 0 ? (

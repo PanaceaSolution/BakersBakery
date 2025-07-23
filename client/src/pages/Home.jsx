@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllProducts } from "../features/product/productSlice";
 import { setHeroByCategory } from "../features/hero/heroSlice";
-
 import ProductHolder from "../components/ProductHolder";
 import Banner from "../components/Banner";
 import SweetDeliverySection from "../components/SweetDeliverySection";
@@ -10,7 +9,6 @@ import SubscribeSection from "../components/SubscribeSection";
 import GoogleMap from "../components/GoogleMap";
 import UserReviewCard from "../components/UserReviewCard";
 
-// Static data for ProductHolder banner
 const data = {
   Title: "This Week's Special Offers",
   subTitle: "Don't Miss Out — Limited-Time Deals Just for You!",
