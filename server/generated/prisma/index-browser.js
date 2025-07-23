@@ -120,14 +120,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.CategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  slug: 'slug',
-  image: 'image',
-  createdAt: 'createdAt'
-};
-
 exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -137,6 +129,15 @@ exports.Prisma.ProductScalarFieldEnum = {
   tags: 'tags',
   available: 'available',
   isFeatured: 'isFeatured',
+  createdAt: 'createdAt',
+  categoryId: 'categoryId'
+};
+
+exports.Prisma.CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  image: 'image',
   createdAt: 'createdAt'
 };
 
@@ -244,8 +245,8 @@ exports.OrderStatuses = exports.$Enums.OrderStatuses = {
 };
 
 exports.Prisma.ModelName = {
-  Category: 'Category',
   Product: 'Product',
+  Category: 'Category',
   CustomCakeOrder: 'CustomCakeOrder',
   CartItem: 'CartItem',
   Order: 'Order',
