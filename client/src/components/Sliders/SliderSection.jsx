@@ -29,6 +29,26 @@ const cakes = [
     name: "Baby Shower Cake",
     image: "/assets/SliderSection/baby.png",
   },
+  {
+    id: "baby-shower-cake",
+    name: "Baby Shower Cake",
+    image: "/assets/SliderSection/baby.png",
+  },
+  {
+    id: "baby-shower-cake",
+    name: "Baby Shower Cake",
+    image: "/assets/SliderSection/baby.png",
+  },
+  {
+    id: "baby-shower-cake",
+    name: "Baby Shower Cake",
+    image: "/assets/SliderSection/baby.png",
+  },
+  {
+    id: "baby-shower-cake",
+    name: "Baby Shower Cake",
+    image: "/assets/SliderSection/baby.png",
+  },
 ];
 
 const SliderSection = () => {
@@ -47,18 +67,18 @@ const SliderSection = () => {
 
   return (
     <section className="relative flex items-center">
-      <button
+      <button 
         onClick={() => scroll("left")}
-        className="absolute left-0 z-10 bg-[#8C1C32] text-white p-2 rounded-full"
+        className="absolute left-0 z-10 bg-[#8C1C32] text-white p-2 rounded-full "
       >
         <ChevronLeft size={24} />
       </button>
-      <div ref={scrollRef} className="flex overflow-x-auto gap-4 px-8 py-4">
+      <div ref={scrollRef} className="flex overflow-x-auto gap-11 px-8 py-4 w-[95%] ml-7 ">
         {cakes.map((cake) => (
           <div
             key={cake.id}
             onClick={() => navigate(`/category/${cake.id}`)}
-            className="cursor-pointer"
+            className="cursor-pointer "
           >
             <SliderCards {...cake} />
           </div>

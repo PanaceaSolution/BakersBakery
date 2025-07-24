@@ -28,7 +28,7 @@ const Home = () => {
 
   useEffect(() => {
     // Set the hero content for home page
-    dispatch(setHeroByCategory("home"));
+    dispatch(setHeroByCategory("home"));  
   }, [dispatch]);
 
 
