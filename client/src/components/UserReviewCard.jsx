@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, Typography, Box, Avatar, Rating } from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import { useTheme } from '@mui/material/styles';

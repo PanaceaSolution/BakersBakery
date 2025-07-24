@@ -1,10 +1,18 @@
-
 import express from "express";
 import sql from "./config/dbConfig.js";
 import productRoute from "./routes/product/productRoute.js";
+import categoryRoute from "./routes/category/categoryRoute.js";
+import orderRoute from "./routes/order/orderRoute.js";
+import customeCakeOrderRoute from "./routes/customCakeOrderRoute/customeCakeRoute.js";
+import reviewRoute from "./routes/review/reviewRoute.js";
+import faqRoute from "./routes/faq/faqRoute.js";
+import cors from "cors";
 
-const app = express()
+const app = express();
 
+app.use(cors({
+  origin : "*"
+}))
 // Middleware
 app.use(express.json());
 
@@ -25,6 +33,11 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/api/v1", productRoute);
+app.use("/api/v1", categoryRoute);
+app.use("/api/v1", orderRoute);
+app.use("/api/v1", customeCakeOrderRoute);
+app.use("/api/v1", reviewRoute);
+app.use("/api/v1", faqRoute);
 
 app.get('/',async (req, res) => {
   try {
@@ -37,6 +50,7 @@ app.get('/',async (req, res) => {
   console.log(error)
 }
 })
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
