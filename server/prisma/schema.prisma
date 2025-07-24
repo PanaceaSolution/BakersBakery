@@ -14,24 +14,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
 model Product {
   id          String    @id @default(uuid())
   name        String
   description String
   price       Decimal   @db.Decimal(10, 2)
+
+//  categoryId  String
+
   images      String[]
   tags        String[]
   available   Boolean   @default(true)
   isFeatured  Boolean   @default(false)
   createdAt   DateTime  @default(now())
-
   categoryId    String?
   category    Category?  @relation(fields: [categoryId], references: [id])
-
   cartItems   CartItem[]
 }
+
 model Category {
   id        String    @id @default(uuid())
   name      String
@@ -40,6 +40,8 @@ model Category {
   createdAt DateTime  @default(now())
 
   products  Product[] // Relation: one-to-many
+ // category    Category  @relation(fields: [categoryId], references: [id])
+
 }
 
 enum CustomCakeStatus {

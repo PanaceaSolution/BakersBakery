@@ -2,7 +2,7 @@ import React from "react";
 
 const SubscribeSection = () => {
   return (
-    <section className="w-full max-w-[1920px] h-[338px] bg-[#F8F8F8] flex flex-col items-center justify-center px-8 md:px-20 py-[59px] gap-[10px] mx-auto overflow-hidden">
+    <section className="w-full  h-[338px] bg-[#F8F8F8] flex flex-col items-center justify-center px-8 md:px-20 py-[59px] gap-[10px] mx-auto overflow-hidden">
       {/* Heading & Subheading */}
       <div className="w-full max-w-[612px] h-[72px] flex flex-col items-center gap-[2px]">
         <h2 className="text-[24px] font-bold text-gray-900 text-center leading-tight">

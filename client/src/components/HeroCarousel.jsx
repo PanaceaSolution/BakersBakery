@@ -9,16 +9,13 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full h-[494px] overflow-hidden">
-      {/* Background Image */}
       <img
         src={image}
         alt={heading}
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Content - centered vertically & horizontally */}
       <div className="relative z-10 flex items-center justify-center h-full px-4">
         <div
           className="flex flex-col items-center text-center text-white"
@@ -30,7 +27,6 @@ const HeroSection = () => {
             transform: "rotate(0deg)",
           }}
         >
-          {/* Heading and Subtext */}
           <div className="space-y-[7px]">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-snug">
               {heading}

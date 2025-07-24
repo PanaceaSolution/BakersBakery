@@ -14,7 +14,6 @@ export const getAllFaqs = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch FAQs" });
   }
 };
-
 export const createFaq = async (req, res) => {
   const { question, answer } = req.body;
 

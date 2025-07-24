@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import cake from "../assets/cak.jpg"; 
 import { Button } from "@mui/material";
-import { FaStar } from "react-icons/fa";
+
 const ProductCard = ({
   id,
   name,
@@ -13,8 +12,8 @@ const ProductCard = ({
   isFeatured,
   available,
 }) => {
-  const [isdiscount, setIsdiscount] = useState(true);
-  const [discount, setDiscount] = useState(7);
+  const [isdiscount] = useState(true);
+  const [discount] = useState(7);
 
   const discountedPrice = price - price * (discount / 100);
 
@@ -22,37 +21,33 @@ const ProductCard = ({
     <div className="w-[355px] h-[364px] rounded-[10px] shadow relative bg-white tracking-wide">
       {/* Discount badge */}
       {isdiscount && (
-        <div className="absolute bg-red-600 text-white px-2 rounded-t-[10px] w-[97px] h-[27px] ">
+        <div className="absolute bg-red-600 text-white px-2 rounded-t-[10px] w-[97px] h-[27px]">
           {discount}% OFF
         </div>
       )}
 
       {/* Product Image */}
-      <div className=" h-[200px] flex  overflow-hidden rounded-t-[10px] ">
-        <img src={cake} alt={name} className="h-full object-center min-w-full " />
+      <div className="h-[200px] flex overflow-hidden rounded-t-[10px]">
+        <img
+          src={images?.[0] || "https://kreamz.in/wp-content/uploads/2024/02/chocolate-truffle-cake.webp"}
+          className="h-full object-fill min-w-full"
+        />
       </div>
 
       {/* Info */}
       <div className="mt-3 flex flex-col p-2">
-        <h2 className="text-lg  flex justify-between font-medium ">
+        <h2 className="text-lg flex justify-between font-medium">
           {name}
           {isdiscount && (
-            <span className="font-[400]   text-gray-400 ">
+            <span className="font-[400] text-gray-400">
               Rs. <span className="line-through">{price}</span>
             </span>
           )}
         </h2>
 
         <div className="mt-2 flex justify-end">
-          {/* <span className="flex">
-            <FaStar color="#FFD700" size={18} />
-            <FaStar color="#FFD700" size={18} />
-            <FaStar color="#FFD700" size={18} />
-            <FaStar color="#FFD700" size={18} />
-            <FaStar color="#FFD700" size={18} />
-          </span> */}
           <span className="text-xl font-medium">
-            Rs. {isdiscount ? discountedPrice : price}
+            Rs. {isdiscount ? discountedPrice.toFixed(2) : price}
           </span>
         </div>
 
