@@ -30,7 +30,7 @@ const ProductCard = ({
       <div className="h-[200px] flex overflow-hidden rounded-t-[10px]">
         <img
           src={images?.[0] || "https://kreamz.in/wp-content/uploads/2024/02/chocolate-truffle-cake.webp"}
-          className="h-full object-fill min-w-full"
+          className="h-full object-cover min-w-full"
         />
       </div>
 

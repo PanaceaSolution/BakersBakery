@@ -1,10 +1,16 @@
 import { Button, CircularProgress } from "@mui/material";
 import ProductCard from "./ProductCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllProducts } from "../features/product/productSlice";
 
 const ProductHolder = ({ Title, subTitle, banner }) => {
   const { products: cake, status } = useSelector((state) => state.product);
 
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAllProducts())
+  },[])
   return (
     <div className="w-screen">
       <div className="flex flex-col gap-8 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-24">
