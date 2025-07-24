@@ -1,6 +1,5 @@
 import prisma from "../../config/prismaClient.js";
 
-// ✅ Get all FAQs
 export const getAllFaqs = async (req, res) => {
   try {
     const faqs = await prisma.faq.findMany({
@@ -15,8 +14,6 @@ export const getAllFaqs = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch FAQs" });
   }
 };
-
-// ✅ Create a new FAQ
 export const createFaq = async (req, res) => {
   const { question, answer } = req.body;
 
@@ -43,7 +40,6 @@ export const createFaq = async (req, res) => {
   }
 };
 
-// ✅ Update a FAQ
 export const updateFaq = async (req, res) => {
   const { id } = req.params;
   const { question, answer } = req.body;
@@ -76,7 +72,6 @@ export const updateFaq = async (req, res) => {
   }
 };
 
-// ✅ Delete a FAQ
 export const deleteFaq = async (req, res) => {
   const { id } = req.params;
 

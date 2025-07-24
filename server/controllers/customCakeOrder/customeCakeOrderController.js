@@ -16,8 +16,13 @@ export const createCustomCakeOrder = async (req, res) => {
 
   if (!userId || !shape || !flavor || !size || !deliveryDate || !address) {
     return res.status(400).json({
-      message:
-        "Please provide all required fields: userId, shape, flavor, size, deliveryDate, address",
+      message: "Please provide all required fields: userId, shape, flavor, size, deliveryDate, address",
+    });
+  }
+
+  if (isNaN(new Date(deliveryDate))) {
+    return res.status(400).json({
+      message: "Invalid delivery date",
     });
   }
 
@@ -48,37 +53,55 @@ export const createCustomCakeOrder = async (req, res) => {
 };
 
 export const getAllCustomeCakeOrders = async (req, res) => {
-  const allCustomeOrder = await prisma.customCakeOrder.findMany();
-  //console.log("all custome cake order", allCustomeOrder);
-  if (allCustomeOrder.length == 0) {
-    return res.status(400).json({
-      message: " No any custome cake order found",
+  try {
+    const allCustomeOrder = await prisma.customCakeOrder.findMany();
+
+    if (allCustomeOrder.length === 0) {
+      return res.status(404).json({
+        message: "No custom cake orders found",
+      });
+    }
+
+    res.status(200).json({
+      message: "Custom cake orders fetched successfully",
+      data: allCustomeOrder,
     });
+  } catch (error) {
+    console.error("Error fetching all custom cake orders:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
-  res.status(200).json({
-    message: "Custome cake order fetched successfully",
-    data: allCustomeOrder,
-  });
 };
 
 export const getSingleCustomOrder = async (req, res) => {
   const { id } = req.params;
 
-  const findCake = await prisma.customCakeOrder.findMany({
-    where: {
-      id,
-    },
-  });
-  //console.log("findl", findCake);
-  if (findCake.length == 0) {
-    res.status(404).json({
-      message: "No Order found",
+  if (!id) {
+    return res.status(400).json({
+      message: "Order ID is required",
     });
   }
-  res.status(200).json({
-    message: "Order fetched successfully",
-    data: findCake,
-  });
+
+  try {
+    const findCake = await prisma.customCakeOrder.findUnique({
+      where: {
+        id: Number(id),  
+      },
+    });
+
+    if (!findCake) {
+      return res.status(404).json({
+        message: "No order found with the provided ID",
+      });
+    }
+
+    res.status(200).json({
+      message: "Custom cake order fetched successfully",
+      data: findCake,
+    });
+  } catch (error) {
+    console.error("Error fetching custom cake order by ID:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 };
 
 export const updateCustomCakeOrderStatus = async (req, res) => {
@@ -90,10 +113,11 @@ export const updateCustomCakeOrderStatus = async (req, res) => {
       message: "Please provide id and status",
     });
   }
+
   try {
     const order = await prisma.customCakeOrder.findUnique({
       where: {
-        id,
+        id: Number(id),  
       },
     });
 
@@ -105,7 +129,7 @@ export const updateCustomCakeOrderStatus = async (req, res) => {
 
     const updatedOrder = await prisma.customCakeOrder.update({
       where: {
-        id,
+        id: Number(id),  
       },
       data: {
         status,

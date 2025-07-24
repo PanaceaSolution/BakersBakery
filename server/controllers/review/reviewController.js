@@ -1,27 +1,41 @@
 import prisma from "../../config/prismaClient.js";
 
 export const createReview = async (req, res) => {
-  const { userId, message, rating, image, isApproved } = req.body;
+  const { userId, message, rating, image, isApproved = false } = req.body;  
 
   if (!userId || !message || !rating || !image) {
     return res.status(400).json({
-      message: "please provide userId, message, rating, and image",
+      message: "Please provide userId, message, rating, and image",
     });
   }
-  const reviews = await prisma.review.create({
-    data: {
-      userId,
-      message,
-      rating,
-      image,
-      isApproved,
-    },
-  });
-  res.status(200).json({
-    message: "Review created successfully",
-    data: reviews,
-  });
+
+  if (rating < 1 || rating > 5) {
+    return res.status(400).json({
+      message: "Rating must be between 1 and 5",
+    });
+  }
+
+  try {
+    const review = await prisma.review.create({
+      data: {
+        userId,
+        message,
+        rating,
+        image,
+        isApproved,
+      },
+    });
+
+    res.status(201).json({
+      message: "Review created successfully",
+      data: review,
+    });
+  } catch (error) {
+    console.error("Error creating review:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 };
+
 export const getApprovedReviews = async (req, res) => {
   try {
     const reviews = await prisma.review.findMany({
@@ -35,45 +49,52 @@ export const getApprovedReviews = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 export const getAllReviews = async (req, res) => {
   try {
     const reviews = await prisma.review.findMany();
 
     res.status(200).json({
-      message: "Review fetched successfully",
+      message: "Reviews fetched successfully",
       data: reviews,
     });
   } catch (error) {
-    console.error("Error fetching approved reviews:", error);
+    console.error("Error fetching all reviews:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
 export const deleteReview = async (req, res) => {
   const { id } = req.params;
+
   if (!id) {
     return res.status(400).json({
-      message: "Please provide Id",
+      message: "Please provide review ID",
     });
   }
-  const findReview = await prisma.review.findMany({
-    where: {
-      id,
-    },
-  });
-  if (findReview.length == 0) {
-    return res.status(404).json({
-      message: "No review found with that Id",
+
+  try {
+    const review = await prisma.review.findUnique({
+      where: { id },
     });
+
+    if (!review) {
+      return res.status(404).json({
+        message: "No review found with that ID",
+      });
+    }
+
+    await prisma.review.delete({
+      where: { id },
+    });
+
+    res.status(200).json({
+      message: "Review deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting review:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
-  await prisma.review.delete({
-    where: {
-      id,
-    },
-  });
-  res.status(200).json({
-    message: "Review delete successfully ",
-  });
 };
 
 export const approveReview = async (req, res) => {
