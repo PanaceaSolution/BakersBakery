@@ -17,7 +17,6 @@ export const createOrder = async (req, res) => {
         "Please provide userId, orderItems, totalAmount, and deliveryAddress",
     });
   }
-
   if (Array.isArray(orderItems) && orderItems.length === 0) {
     return res.status(400).json({
       message: "Order must contain at least one item",
@@ -29,7 +28,6 @@ export const createOrder = async (req, res) => {
       message: "Total amount must be greater than zero",
     });
   }
-
   try {
     const order = await prisma.order.create({
       data: {
@@ -75,7 +73,6 @@ export const getAllOrder = async (req, res) => {
 
 export const getOrderById = async (req, res) => {
   const { id } = req.params;
-
   if (!id) {
     return res.status(400).json({
       message: "Order ID is required",

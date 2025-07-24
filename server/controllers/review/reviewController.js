@@ -1,41 +1,6 @@
 import prisma from "../../config/prismaClient.js";
 
 export const createReview = async (req, res) => {
-  const { userId, message, rating, image, isApproved = false } = req.body;  
-
-  if (!userId || !message || !rating || !image) {
-    return res.status(400).json({
-      message: "Please provide userId, message, rating, and image",
-    });
-  }
-
-  if (rating < 1 || rating > 5) {
-    return res.status(400).json({
-      message: "Rating must be between 1 and 5",
-    });
-  }
-
-  try {
-    const review = await prisma.review.create({
-      data: {
-        userId,
-        message,
-        rating,
-        image,
-        isApproved,
-      },
-    });
-
-    res.status(201).json({
-      message: "Review created successfully",
-      data: review,
-    });
-  } catch (error) {
-    console.error("Error creating review:", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
 export const getApprovedReviews = async (req, res) => {
   try {
     const reviews = await prisma.review.findMany({
@@ -49,7 +14,6 @@ export const getApprovedReviews = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
 export const getAllReviews = async (req, res) => {
   try {
     const reviews = await prisma.review.findMany();
@@ -66,7 +30,6 @@ export const getAllReviews = async (req, res) => {
 
 export const deleteReview = async (req, res) => {
   const { id } = req.params;
-
   if (!id) {
     return res.status(400).json({
       message: "Please provide review ID",

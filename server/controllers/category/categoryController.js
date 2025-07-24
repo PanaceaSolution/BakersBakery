@@ -2,7 +2,6 @@ import prisma from "../../config/prismaClient.js";
 
 export const createCategory = async (req, res) => {
   const { name, slug, image } = req.body;
-
   if (!name || !slug || !image) {
     return res.status(400).json({
       message: "Please provide name, slug, and image of category",
@@ -104,7 +103,6 @@ export const updateCategory = async (req, res) => {
 
 export const deleteCategory = async (req, res) => {
   const { id } = req.params;
-
   try {
     const foundCategory = await prisma.category.findUnique({
       where: { id },
