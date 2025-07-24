@@ -18,10 +18,14 @@ export const createProduct = async (req, res) => {
     }
 
     if (isNaN(price) || parseFloat(price) <= 0) {
-      return res.status(400).json({ message: "Price must be a valid number greater than 0" });
+      return res
+        .status(400)
+        .json({ message: "Price must be a valid number greater than 0" });
     }
 
-    const categoryExists = await prisma.category.findUnique({ where: { id: categoryId } });
+    const categoryExists = await prisma.category.findUnique({
+      where: { id: categoryId },
+    });
     if (!categoryExists) {
       return res.status(404).json({ message: "Category not found" });
     }
@@ -70,7 +74,9 @@ export const getProductById = async (req, res) => {
       return res.status(404).json({ message: "Product not found !!" });
     }
 
-    res.status(200).json({message : "Product fetched successfully !!" , data: product });
+    res
+      .status(200)
+      .json({ message: "Product fetched successfully !!", data: product });
   } catch (error) {
     console.error("Error fetching product:", error);
     res.status(500).json({ message: "Server error", error: error.message });
@@ -100,11 +106,15 @@ export const updateProduct = async (req, res) => {
     }
 
     if (price && (isNaN(price) || parseFloat(price) <= 0)) {
-      return res.status(400).json({ message: "Price must be a valid number greater than 0" });
+      return res
+        .status(400)
+        .json({ message: "Price must be a valid number greater than 0" });
     }
 
     if (categoryId) {
-      const categoryExists = await prisma.category.findUnique({ where: { id: categoryId } });
+      const categoryExists = await prisma.category.findUnique({
+        where: { id: categoryId },
+      });
       if (!categoryExists) {
         return res.status(404).json({ message: "Category not found" });
       }

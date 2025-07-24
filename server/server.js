@@ -1,10 +1,14 @@
-
 import express from "express";
 import sql from "./config/dbConfig.js";
 import productRoute from "./routes/product/productRoute.js";
+import categoryRoute from "./routes/category/categoryRoute.js";
+import cors from "cors";
 
 const app = express()
 
+app.use(cors({
+  origin : "*"
+}))
 // Middleware
 app.use(express.json());
 
@@ -25,6 +29,7 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/api/v1", productRoute);
+app.use("/api/v1", categoryRoute);
 
 app.get('/',async (req, res) => {
   try {
@@ -43,3 +48,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+ 
