@@ -14,7 +14,7 @@ export const createReview = async (req, res) => {
       message,
       rating,
       image,
-      isApproved,
+      isApproved: false,
     },
   });
   res.status(200).json({
