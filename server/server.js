@@ -6,9 +6,13 @@ import orderRoute from "./routes/order/orderRoute.js";
 import customeCakeOrderRoute from "./routes/customCakeOrderRoute/customeCakeRoute.js";
 import reviewRoute from "./routes/review/reviewRoute.js";
 import faqRoute from "./routes/faq/faqRoute.js";
+import cors from "cors";
 
 const app = express();
 
+app.use(cors({
+  origin : "*"
+}))
 // Middleware
 app.use(express.json());
 
@@ -34,6 +38,19 @@ app.use("/api/v1", orderRoute);
 app.use("/api/v1", customeCakeOrderRoute);
 app.use("/api/v1", reviewRoute);
 app.use("/api/v1", faqRoute);
+
+app.get('/',async (req, res) => {
+  try {
+  const result = await sql `SELECT version()`;
+  const { version } = result[0];
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(version);
+  console.log("Database connected successfully !!")
+} catch (error) {
+  console.log(error)
+}
+})
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;
